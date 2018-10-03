@@ -5,8 +5,8 @@ This repository is part of my NLP research with
 framework from [Zalando Research](https://research.zalando.com/).
 
 This repository will include models for various NLP benchmarks, such as
-GermEval 2018. It will be updated frequently. So please star or follow this
-repository ;)
+GermEval 2018. It will be updated frequently. So please star or watch this
+repository 😅
 
 # GermEval 2018
 
