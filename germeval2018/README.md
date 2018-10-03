@@ -140,9 +140,25 @@ AVERAGE: precision=89.94 recall=84.32 fscore=87.04
 *******************************************************************
 ```
 
+Another run:
+
+```text
+Evaluate on TASK1!
+
+****************************TASK 1: COARSE ************************
+ACCURACY: 93.29 (correct=3295; total instances=3532)
+CATEGORY "OFFENSE": precision=88.63 recall=92.10 fscore=90.33
+CATEGORY "OTHER": precision=95.84 recall=93.91 fscore=94.86
+AVERAGE: precision=92.23 recall=93.00 fscore=92.62
+*******************************************************************
+```
+
+The model can be downloaded
+[here](https://schweter.eu/cloud/flair-experiments/germeval2018-experiment-1-final-model.tar.xz) soon.
+
 ## Overview
 
 | System                       | Final F-Score
-| ---------------------------- | -------------
+| ---------------------------- | ---------------------------
 | GermEval 2018 winning system | 76.77
-| Experiment 1                 | **87.04**
+| Experiment 1                 | from **87.04** to **92.62**
