@@ -6,9 +6,9 @@ from flair.embeddings import WordEmbeddings, CharLMEmbeddings, DocumentLSTMEmbed
 from flair.models.text_classification_model import TextClassifier
 from flair.trainers.text_classification_trainer import TextClassifierTrainer
 
-sentences_train: List[Sentence] = NLPTaskDataFetcher.read_text_classification_file('train_flair.txt.preprocessed')
-sentences_dev: List[Sentence] = NLPTaskDataFetcher.read_text_classification_file('dev_flair.txt.preprocessed')
-sentences_test: List[Sentence] = NLPTaskDataFetcher.read_text_classification_file('test_flair.txt.preprocessed')
+sentences_train: List[Sentence] = NLPTaskDataFetcher.read_text_classification_file('training.preprocessed.txt')
+sentences_dev: List[Sentence] = NLPTaskDataFetcher.read_text_classification_file('dev.preprocessed.txt')
+sentences_test: List[Sentence] = NLPTaskDataFetcher.read_text_classification_file('test.preprocessed.txt')
 
 corpus = TaggedCorpus(sentences_train, sentences_dev, sentences_test)
 
