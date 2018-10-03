@@ -133,23 +133,10 @@ For the first experiment on Task 1 the following results could be achieved:
 Evaluate on TASK1!
 
 ****************************TASK 1: COARSE ************************
-ACCURACY: 88.45 (correct=3124; total instances=3532)
-CATEGORY "OFFENSE": precision=93.06 recall=71.38 fscore=80.79
-CATEGORY "OTHER": precision=86.82 recall=97.25 fscore=91.74
-AVERAGE: precision=89.94 recall=84.32 fscore=87.04
-*******************************************************************
-```
-
-Another run:
-
-```text
-Evaluate on TASK1!
-
-****************************TASK 1: COARSE ************************
-ACCURACY: 93.29 (correct=3295; total instances=3532)
-CATEGORY "OFFENSE": precision=88.63 recall=92.10 fscore=90.33
-CATEGORY "OTHER": precision=95.84 recall=93.91 fscore=94.86
-AVERAGE: precision=92.23 recall=93.00 fscore=92.62
+ACCURACY: 77.49 (correct=2737; total instances=3532)
+CATEGORY "OFFENSE": precision=69.55 recall=60.23 fscore=64.56
+CATEGORY "OTHER": precision=80.81 recall=86.39 fscore=83.51
+AVERAGE: precision=75.18 recall=73.31 fscore=74.24
 *******************************************************************
 ```
 
@@ -160,5 +147,5 @@ The model can be downloaded
 
 | System                       | Final F-Score
 | ---------------------------- | ---------------------------
-| GermEval 2018 winning system | 76.77
-| Experiment 1                 | from **87.04** to **92.62**
+| GermEval 2018 winning system | **76.77**
+| Experiment 1                 | 74.24
