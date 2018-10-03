@@ -19,8 +19,7 @@ All details for training a model with `flair` and achieving state-of-the-art
 results are located in the [GermEval 2018](germeval2018/README.md) readme.
 
 The winning system for task 1 achieved a F-Score of 76.77. The currently best
-model trained with `flair` achieves a F-Score from **87.04** (+10.24) to
-**92.62** (+15.85).
+model trained with `flair` achieves a F-Score from **74.24**.
 
 # Contact (Bugs, Feedback, Contribution and more)
 
