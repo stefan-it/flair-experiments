@@ -13,7 +13,7 @@ with open(test_filename, 'rt') as f:
 for line in lines:
   sentence, label, x = line.split("\t")
 
-  new_line = [token.replace('#', '') for token in line.split() if not token[0] in ['@', '&', '|']]
+  new_line = [token.replace('#', '') for token in sentence.split() if not token[0] in ['@', '&', '|']]
 
   sentence = " ".join(new_line)
 
@@ -24,4 +24,3 @@ for line in lines:
   label = str(s.labels[0]).split()[0]
 
   print(f"{sentence}\t{label}\tNOT USED")
-
