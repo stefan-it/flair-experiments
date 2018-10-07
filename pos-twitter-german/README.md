@@ -98,6 +98,12 @@ For the first experiment on Task 1 the following results could be achieved:
 Accuracy: 0.9189007139970362
 ```
 
+#### Plot
+
+Accuracy over epochs:
+
+![accuracy over epochs](training_1.png)
+
 ## Overview
 
 | System                          | Final F-Score
