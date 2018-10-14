@@ -59,7 +59,7 @@ For the first experiment we use the following parameters:
 
 | Parameter              | Value
 | ---------------------- | -----
-| `flair`                | 2be0f465807ce49cedcbd663337eafbcb67fdd25
+| `flair`                | beffa4a32947d0a7a0afbb431bb65e201e4ac757 + own accuracy calculation fix
 | `WordEmbeddings`       | `de-fasttext`
 | `CharLMEmbeddings`     | `german-forward`
 | `CharLMEmbeddings`     | `german-backward`
@@ -95,7 +95,7 @@ python predict.py twitter_gold/twitter.gold.test.xml
 For the first experiment on Task 1 the following results could be achieved:
 
 ```text
-Accuracy: 0.9189007139970362
+Accuracy: 0.9249629529839688
 ```
 
 #### Plot
@@ -109,4 +109,4 @@ Accuracy over epochs:
 | System                          | Final F-Score
 | ------------------------------- | ---------------------------
 | Best reported accuracy in paper | 89.42
-| Experiment 1                    | **91.89**
+| Experiment 1                    | **92.49**
