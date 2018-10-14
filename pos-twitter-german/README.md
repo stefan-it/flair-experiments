@@ -100,9 +100,9 @@ Accuracy: 0.9249629529839688
 
 #### Plot
 
-Accuracy over epochs:
+Accuracy and F1-score over epochs:
 
-![accuracy over epochs](training_1.png)
+![accuracy and f1-scpre over epochs](training_1.png)
 
 ## Overview
 
