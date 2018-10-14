@@ -29,7 +29,7 @@ state-of-the-art result for the paper
 are located in the [POS Twitter German](pos-twitter-german/README.md) readme.
 
 The paper reported an accuracy of 89.42. The currently best model trained with
-`flair` achieves **91.89** (+ 2.47).
+`flair` achieves **92.49** (+ 3.07).
 
 # Contact (Bugs, Feedback, Contribution and more)
 
