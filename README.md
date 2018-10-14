@@ -31,6 +31,17 @@ are located in the [POS Twitter German](pos-twitter-german/README.md) readme.
 The paper reported an accuracy of 89.42. The currently best model trained with
 `flair` achieves **92.49** (+ 3.07).
 
+# German Universal Dependencies 1.2
+
+All details for training a model with `flair` on German universal dependencies
+and achieving a new state-of-the-art result can be found in the
+[UD German](ud-german/README.md) readme.
+
+The current state-of-the-art result for German UD is reported by
+[Yasunaga et. al (2017)](https://arxiv.org/abs/1711.04903). They use
+adversarial training and their system achieves an accuracy of 94.35. With `flair`
+an accuracy of **94.52** (+ 0.17) can be achieved.
+
 # Contact (Bugs, Feedback, Contribution and more)
 
 For questions about `flair-experiments`, contact the current maintainer:
