@@ -64,6 +64,17 @@ The current state-of-the-art result for Slovenian UD is reported by
 adversarial training and their system achieves an accuracy of 98.11. With `flair`
 an accuracy of **98.88** (+ 0.77) can be achieved.
 
+# Dutch Universal Dependencies 1.2
+
+All details for training a model with `flair` on Dutch universal
+dependencies and achieving a new state-of-the-art result can be found in the
+[UD Dutch](ud-dutch/README.md) readme.
+
+The current state-of-the-art result for Dutch UD is reported by
+[Plank et. al (2016)](https://arxiv.org/abs/1711.04903). They use
+a bi-lstm architecture and their system achieves an accuracy of 93.82. With `flair`
+an accuracy of **93.84** (+ 0.02) can be achieved.
+
 # Contact (Bugs, Feedback, Contribution and more)
 
 For questions about `flair-experiments`, contact the current maintainer:
