@@ -53,6 +53,17 @@ The current state-of-the-art result for Bulgarian UD is reported by
 adversarial training and their system achieves an accuracy of 98.53. With `flair`
 an accuracy of **99.08** (+ 0.55) can be achieved.
 
+# Slovenian Universal Dependencies 1.2
+
+All details for training a model with `flair` on Slovenian universal
+dependencies and achieving a new state-of-the-art result can be found in the
+[UD Slovenian](ud-slovenian/README.md) readme.
+
+The current state-of-the-art result for Slovenian UD is reported by
+[Yasunaga et. al (2017)](https://arxiv.org/abs/1711.04903). They use
+adversarial training and their system achieves an accuracy of 98.11. With `flair`
+an accuracy of **98.88** (+ 0.77) can be achieved.
+
 # Contact (Bugs, Feedback, Contribution and more)
 
 For questions about `flair-experiments`, contact the current maintainer:
