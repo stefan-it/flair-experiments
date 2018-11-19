@@ -115,3 +115,12 @@ Thus, a f-score of 87.91 was achieved.
 | ------------------------------------------------------------------------------- | -------------
 | CoNLL 2002 [best system](https://www.clips.uantwerpen.be/conll2002/ner/#CMP02)  | 77.05
 | Experiment 1                                                                    | **87.91**
+
+
+# Downloads
+
+The trained model for experiment 1 can be downloaded with:
+
+```bash
+wget https://schweter.eu/cloud/flair-models/nl-ner-conll02-v0.1.pt
+```
