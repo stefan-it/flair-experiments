@@ -75,6 +75,15 @@ The current state-of-the-art result for Dutch UD is reported by
 a bi-lstm architecture and their system achieves an accuracy of 93.82. With `flair`
 an accuracy of **93.84** (+ 0.02) can be achieved.
 
+# Dutch Named Entity Recognition (CoNLL 2002)
+
+All details for training a model with `flair` for the CoNLL 2002 Named Entity
+Recognition task on Dutch and achieving a state-of-the-art result can be found
+in the [NER Dutch](conll2002-ner-dutch/README.md) readme.
+
+The best reporting system in the CoNLL 2002 task achieved a f-score of 77.05.
+With `flair` a f-score of **87.91** (+ 10.86) can be achieved.
+
 # Contact (Bugs, Feedback, Contribution and more)
 
 For questions about `flair-experiments`, contact the current maintainer:
