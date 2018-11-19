@@ -11,9 +11,9 @@ The train, dev and test datasets are used from:
 Thus, this data needs to be downloaded with:
 
 ```bash
-wegt https://www.clips.uantwerpen.be/conll2002/ner/data/ned.train
-wegt https://www.clips.uantwerpen.be/conll2002/ner/data/ned.testa
-wegt https://www.clips.uantwerpen.be/conll2002/ner/data/ned.testb
+wget https://www.clips.uantwerpen.be/conll2002/ner/data/ned.train
+wget https://www.clips.uantwerpen.be/conll2002/ner/data/ned.testa
+wget https://www.clips.uantwerpen.be/conll2002/ner/data/ned.testb
 ```
 
 As development data, `ned.testa` is used. `ned.testb` is then used as test data
@@ -33,7 +33,7 @@ recode l1..u8 ned.testb
 Pretrained `fasttext` word embeddings needs to be downloaded with:
 
 ```
-https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.nl.vec
+wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.nl.vec
 ```
 
 ## Language models
@@ -122,5 +122,5 @@ Thus, a f-score of 87.91 was achieved.
 The trained model for experiment 1 can be downloaded with:
 
 ```bash
-wget https://schweter.eu/cloud/flair-models/nl-ner-conll02-v0.1.pt
+wget https://schweter.eu/cloud/flair-models/nl-ner-conll02-v0.1.pt (current not working on pytorch < 1.0)
 ```
