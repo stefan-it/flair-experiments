@@ -7,7 +7,7 @@ from flair.models import SequenceTagger
 
 test_file_name = sys.argv[1]
 
-tagger: SequenceTagger = SequenceTagger.load_from_file('resources/taggers/ner-dutch/best-model.pt')
+tagger: SequenceTagger = SequenceTagger.load_from_file('resources/taggers/ner-dutch/final-model.pt')
 
 with open(test_file_name) as f:
     lines = [line.rstrip() for line in f.readlines()]
@@ -40,7 +40,7 @@ for line in lines:
                 predicted_tag = predicted_tag.replace('E-', 'I-')
 
             # Use dummy pos tag ;)
-            print(f'{token}\tPOS\t{gold_tag}\t{predicted_tag}')
+            print(f'{token} POS {gold_tag} {predicted_tag}')
 
         print("")
 
