@@ -24,7 +24,7 @@ print(corpus)
 word_vectors = gensim.models.KeyedVectors.load_word2vec_format('wiki.nl.vec', binary=False)
 word_vectors.save('wiki.nl.vec.gensim')
 
-custom_embedding = WordEmbeddings('custom', 'wiki.nl.vec.gensim')
+custom_embedding = WordEmbeddings('wiki.nl.vec.gensim')
 
 char_lm_forward = CharLMEmbeddings('lm-nl-large-forward-v0.1.pt')
 char_lm_backward = CharLMEmbeddings('lm-nl-large-backward-v0.1.pt')
