@@ -55,7 +55,7 @@ wget https://schweter.eu/cloud/flair-lms/lm-nl-large-backward-v0.1.pt
 
 | Parameter              | Value
 | ---------------------- | -----
-| `flair`                | 4a4a38e0c3b1ba71d26d379bf10918aa0dce28f3
+| `flair`                | 86485ec920e30b787c43b6b3ff094fbc4fa0c253
 | `WordEmbeddings`       | Pretrained Dutch `fasttext` embeddings from [here](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md)
 | `CharLMEmbeddings`     | Forward lm from [here](https://github.com/stefan-it/flair-lms#dutch)
 | `CharLMEmbeddings`     | Backward lm from [here](https://github.com/stefan-it/flair-lms#dutch)
@@ -76,7 +76,7 @@ We use the official evaluation script from CoNNL website. It can be downloaded
 with:
 
 ```bash
-https://www.clips.uantwerpen.be/conll2002/ner/bin/conlleval.txt
+wget https://www.clips.uantwerpen.be/conll2002/ner/bin/conlleval.txt
 ```
 
 The `predict_ner.py` script produces the correct input format for the evaluation
@@ -99,22 +99,22 @@ perl conlleval.txt < output.system
 The CoNNL evaluation script outputs:
 
 ```bash
-processed 68875 tokens with 3941 phrases; found: 3915 phrases; correct: 3453.
-accuracy:  98.82%; precision:  88.20%; recall:  87.62%; FB1:  87.91
-              LOC: precision:  89.88%; recall:  94.06%; FB1:  91.92  810
-             MISC: precision:  89.67%; recall:  78.94%; FB1:  83.96  1045
-              ORG: precision:  81.94%; recall:  83.33%; FB1:  82.63  897
-              PER: precision:  90.54%; recall:  95.90%; FB1:  93.14  1163
+processed 68875 tokens with 3941 phrases; found: 3913 phrases; correct: 3517.
+accuracy:  98.96%; precision:  89.88%; recall:  89.24%; FB1:  89.56
+              LOC: precision:  93.03%; recall:  94.83%; FB1:  93.92  789
+             MISC: precision:  90.36%; recall:  81.30%; FB1:  85.59  1068
+              ORG: precision:  83.85%; recall:  86.51%; FB1:  85.16  910
+              PER: precision:  92.06%; recall:  96.08%; FB1:  94.03  1146
 ```
 
-Thus, a f-score of 87.91 was achieved.
+Thus, a f-score of 89.56 was achieved.
 
 ## Overview
 
 | System                                                                          | Final Accuracy
 | ------------------------------------------------------------------------------- | -------------
 | CoNLL 2002 [best system](https://www.clips.uantwerpen.be/conll2002/ner/#CMP02)  | 77.05
-| Experiment 1                                                                    | **87.91**
+| Experiment 1                                                                    | **89.56**
 
 
 # Downloads
@@ -122,5 +122,5 @@ Thus, a f-score of 87.91 was achieved.
 The trained model for experiment 1 can be downloaded with:
 
 ```bash
-wget https://schweter.eu/cloud/flair-models/nl-ner-conll02-v0.1.pt (current not working on pytorch < 1.0)
+wget https://schweter.eu/cloud/flair-models/nl-ner-conll02-v0.1.pt
 ```
