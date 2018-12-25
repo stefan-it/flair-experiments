@@ -91,7 +91,7 @@ Accuracy: 0.990784288801322
 
 | System                                                     | Final Accuracy
 | ---------------------------------------------------------- | -------------
-| [Yu et. al (2017](https://arxiv.org/abs/1706.01723)        | 98.20
+| [Yu et. al (2017)](https://arxiv.org/abs/1706.01723)       | 98.20
 | [Plank et. al (2016)](https://arxiv.org/abs/1604.05529)    | 98.23
 | [Yasunaga et. al (2017)](https://arxiv.org/abs/1711.04903) | 98.53
 | Experiment 1                                               | **99.08**

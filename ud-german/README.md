@@ -78,9 +78,9 @@ Accuracy and F1-score over epochs:
 
 ## Overview
 
-| System                                                     | Final F-Score
+| System                                                     | Final Accuracy
 | ---------------------------------------------------------- | -------------
-| [Yu et. al (2017](https://arxiv.org/abs/1706.01723)        | 92.73
+| [Yu et. al (2017)](https://arxiv.org/abs/1706.01723)       | 92.73
 | [Plank et. al (2016)](https://arxiv.org/abs/1604.05529)    | 93.51
 | [Yasunaga et. al (2017)](https://arxiv.org/abs/1711.04903) | 94.35
 | Experiment 1                                               | **94.52**

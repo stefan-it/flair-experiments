@@ -102,11 +102,11 @@ Accuracy: 0.9249629529839688
 
 Accuracy and F1-score over epochs:
 
-![accuracy and f1-scpre over epochs](training_1.png)
+![accuracy and f1-score over epochs](training_1.png)
 
 ## Overview
 
-| System                          | Final F-Score
+| System                          | Final Accuracy
 | ------------------------------- | ---------------------------
 | Best reported accuracy in paper | 89.42
 | Experiment 1                    | **92.49**
