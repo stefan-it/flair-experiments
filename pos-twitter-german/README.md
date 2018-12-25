@@ -74,6 +74,25 @@ To reproduce the first experiment, just use the following training script:
 python train_1.py
 ```
 
+### Experiment 2
+
+For the second experiment we use the following parameters:
+
+| Parameter              | Value
+| ---------------------- | -----
+| `flair`                | 5b72a4491de637d49dbed19a9bd1a456da7df365
+| `WordEmbeddings`       | `de-fasttext`
+| `CharLMEmbeddings`     | `german-forward`
+| `CharLMEmbeddings`     | `german-backward`
+| `hidden_size`          | `256`
+| `learning_rate`        | `0.2`
+| `mini_batch_size`      | `8`
+| `max_epochs`           | `150`
+| `dropout`              | `0.28773163555776493`
+
+These parameters were found after a hyper parameter search. In order to run
+a hyper parameter search, just use the `hyperopt.py` script.
+
 ## Evaluation
 
 There's no official evaluation script available. Thus, we measure the
@@ -92,7 +111,7 @@ python predict.py twitter_gold/twitter.gold.test.xml
 
 ### Experiment 1
 
-For the first experiment on Task 1 the following results could be achieved:
+For the first experiment the following result accuracy could be achieved:
 
 ```text
 Accuracy: 0.9249629529839688
@@ -104,9 +123,34 @@ Accuracy and F1-score over epochs:
 
 ![accuracy and f1-score over epochs](training_1.png)
 
+### Experiment 2
+
+For the second experiment an accuracy of 93.06 could be achieved.
+
+The model for experiment 2 can be downloaded from:
+
+```bash
+wget https://schweter.eu/cloud/flair-models/de-pos-twitter-v0.1.pt
+```
+
+That model was also included in `flair` 0.4, see [this](https://github.com/zalandoresearch/flair/issues/51)
+issue. Thus, the model can be loaded with:
+
+```python
+from flair.models import SequenceTagger
+tagger: SequenceTagger = SequenceTagger.load('de-pos-fine-grained')
+```
+
+#### Plot
+
+Accuracy and F1-score over epochs:
+
+![accuracy and f1-score over epochs](training_2.png)
+
 ## Overview
 
 | System                          | Final Accuracy
 | ------------------------------- | ---------------------------
 | Best reported accuracy in paper | 89.42
-| Experiment 1                    | **92.49**
+| Experiment 1                    | 92.49
+| Experiment 2                    | **93.06**
