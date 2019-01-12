@@ -65,6 +65,26 @@ To reproduce the first experiment, just use the following training script:
 python train_1.py
 ```
 
+### BERT Multilingual Embeddings
+
+| Parameter              | Value
+| ---------------------- | -----
+| `flair`                | bd1bc6306284c1c71781b503c244f5d3c9e29526
+| `WordEmbeddings`       | Basque `fasttext` embeddings
+| `BertEmbeddings`       | `bert-base-multilingual-cased`
+| `hidden_size`          | `512`
+| `learning_rate`        | `0.1`
+| `mini_batch_size`      | `8`
+| `max_epochs`           | `500`
+| `use_crf`              | `False`
+
+For the BERT multilingual embeddings experiment, a per-layer analysis
+can be done using the following command:
+
+```bash
+python train_bert.py <layer>
+```
+
 ## Evaluation
 
 There's no official evaluation script available. Thus, we measure the
@@ -87,6 +107,28 @@ For the first experiment the following results could be achieved:
 Accuracy: 0.9717
 ```
 
+## BERT Multilingual Embeddings
+
+For the BERT multilingual embeddings experiment, a per-layer analysis
+was done:
+
+| Layer    | Trained epochs | Duration | Test Accuracy
+| -------- | -------------- | -------- | -------------
+| Layer 1  | 148            | 1:25h    | 0.9431
+| Layer 2  | 127            | 1:15h    | 0.9473
+| Layer 3  | 136            | 1:20h    | 0.9529
+| Layer 4  | 145            | 1:25h    | 0.9563
+| Layer 5  | 113            | 1:06h    | 0.9571
+| Layer 6  | 146            | 1:24h    | 0.9578
+| Layer 7  | 137            | 1:19h    | 0.9581
+| Layer 8  | 152            | 1:28h    | 0.9588
+| Layer 9  | 150            | 1:27h    | 0.9566
+| Layer 10 | 157            | 1:31h    | 0.9552
+| Layer 11 | 147            | 1:25h    | 0.9544
+| Layer 12 | 135            | 1:19h    | 0.9597
+
+![BERT Multilingual Embeddings (per-layer analysis)](bert_multilingual.jpg)
+
 ## Overview
 
 | System                                                     | Final Accuracy
@@ -95,3 +137,4 @@ Accuracy: 0.9717
 | [Plank et. al (2016)](https://arxiv.org/abs/1604.05529)    | 95.51
 | [Yasunaga et. al (2017)](https://arxiv.org/abs/1711.04903) | 94.71
 | Experiment 1                                               | **97.17**
+| BERT Multilingual Embeddings (last layer)                  | 95.97
