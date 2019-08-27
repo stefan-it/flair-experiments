@@ -15,7 +15,7 @@ The following parameters are used for all experiments:
 | `flair`                | 0.4.3
 | `hidden_size`          | `256`
 | `learning_rate`        | `0.1`
-| `mini_batch_size`      | `8`
+| `mini_batch_size`      | `16`
 | `max_epochs`           | `500`
 
 For Transformer-based architectures, all layers (incl. word embedding layer)
