@@ -13,7 +13,7 @@ repository 😅
 For the integration of PyTorch-Transformers into `flair`, I run experiments
 for several Transformer-based architectures.
 
-All details can be found in the [NER English](conll2002-ner-dutch/README.md)
+All details can be found in the [NER English](conll2003-ner-english/README.md)
 readme.
 
 # Archived
