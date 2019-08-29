@@ -45,6 +45,6 @@ The following table shows all experiments on the CoNLL-2003 NER dataset.
 | GPT-2 (large)                              | `first_last` | 94.09     | 90.63
 | ELMo (original)                            | -            | 95.39     | 92.11
 | ELMo (large, 5.5B tokens)                  | -            | 95.68     | 92.15
-| DistilBERT (base, uncased)                    | `first`      | 94.37     | 90.29
+| DistilBERT (base, uncased)                 | `first`      | 94.20     | 90.68
 
 **Notice**: Only **one** run is reported here.
