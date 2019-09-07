@@ -48,3 +48,14 @@ The following table shows all experiments on the CoNLL-2003 NER dataset.
 | DistilBERT (base, uncased)                 | `first`      | 94.20     | 90.68
 
 **Notice**: Only **one** run is reported here.
+
+## Stacking Experiments
+
+Stacking in this context means a concatenation of two or more embeddings from different
+language models for each token. I made two experiments with "stacking" cased and uncased
+BERT models:
+
+| Models                                     | Pooling | Dev       | Test
+| ------------------------------------------ | ------- | --------- | -----
+| BERT (base, cased), BERT (base, uncased)   | `first` | 96.15     | 92.30
+| BERT (large, cased), BERT (large, uncased) | `first` | **96.26** | 92.30
