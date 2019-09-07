@@ -6,6 +6,10 @@ are reported.
 All supported Tranformer-based architectures in [PyTorch-Transformers](https://github.com/huggingface/pytorch-transformers)
 are used, as well as two ELMo models.
 
+## Changelog
+
+**September 2019**: Experiments with stacking cased and uncased BERT models added. First results for SpanBERT are done.
+
 ## Training
 
 The following parameters are used for all experiments:
@@ -46,6 +50,7 @@ The following table shows all experiments on the CoNLL-2003 NER dataset.
 | ELMo (original)                            | -            | 95.39     | 92.11
 | ELMo (large, 5.5B tokens)                  | -            | 95.68     | 92.15
 | DistilBERT (base, uncased)                 | `first`      | 94.20     | 90.68
+| SpanBERT (base, cased) **preliminary**     | `first`      | 89.26     | 83.55
 
 **Notice**: Only **one** run is reported here.
 
