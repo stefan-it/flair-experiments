@@ -48,6 +48,7 @@ The following table shows all experiments on the UD v1.2 dataset for English.
 | SpanBERT (large)                           | `first`      | 96.48     | 96.61
 | BERT (large, cased)                        | `first`      | 97.35     | 97.20
 | DistilBERT (uncased)                       | `first`      | 96.64     | 96.70
+| XLNet (large)                              | `first`      | 97.44     | 97.31
 
 **Notice**: Only **one** run is reported here.
 
