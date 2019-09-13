@@ -1,0 +1,13 @@
+{
+    "description": "ELMo original",
+    "embeddings": ["elmo-original"],
+    "layers": [],
+    "batch_size": 16,
+    "hidden_size": 256,
+    "max_epochs": 500,
+    "embeddings_storage_mode": "gpu",
+    "pooling_operation": "",
+    "use_crf": true,
+    "use_scalar_mix": true,
+    "train_with_dev": false
+}
