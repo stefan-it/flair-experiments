@@ -5,7 +5,16 @@ from dataclasses import dataclass
 
 from flair import logger
 from flair.datasets import ColumnCorpus
-from flair.embeddings import TokenEmbeddings, RoBERTaEmbeddings, StackedEmbeddings
+from flair.embeddings import (
+    BertEmbeddings,
+    ELMoEmbeddings,
+    OpenAIGPT2Embeddings,
+    TokenEmbeddings,
+    RoBERTaEmbeddings,
+    StackedEmbeddings,
+    XLMEmbeddings,
+    XLMEmbeddings,
+)
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
 
@@ -71,6 +80,49 @@ class ExperimentRunner:
             if embedding.startswith("roberta"):
                 token_embeddings.append(
                     RoBERTaEmbeddings(
+                        pretrained_model_name_or_path=embedding,
+                        pooling_operation=pooling_operation,
+                        layers=layers,
+                        use_scalar_mix=self.experiment.use_scalar_mix,
+                    )
+                )
+            elif (
+                embedding.startswith("bert")
+                or embedding.startswith("distilbert")
+                or embedding.startswith("spanbert")
+            ):
+                token_embeddings.append(
+                    BertEmbeddings(
+                        bert_model_or_path=embedding,
+                        pooling_operation=pooling_operation,
+                        layers=layers,
+                        use_scalar_mix=self.experiment.use_scalar_mix,
+                    )
+                )
+            elif embedding.startswith("elmo"):
+                model_name = embedding.split("-")[-1]
+                token_embeddings.append(ELMoEmbeddings(model=model_name))
+            elif embedding.startswith("gpt2"):
+                token_embeddings.append(
+                    OpenAIGPT2Embeddings(
+                        pretrained_model_name_or_path=embedding,
+                        pooling_operation=pooling_operation,
+                        layers=layers,
+                        use_scalar_mix=self.experiment.use_scalar_mix,
+                    )
+                )
+            elif embedding.startswith("xlm"):
+                token_embeddings.append(
+                    XLMEmbeddings(
+                        pretrained_model_name_or_path=embedding,
+                        pooling_operation=pooling_operation,
+                        layers=layers,
+                        use_scalar_mix=self.experiment.use_scalar_mix,
+                    )
+                )
+            elif embedding.startswith("xlnet"):
+                token_embeddings.append(
+                    XLMEmbeddings(
                         pretrained_model_name_or_path=embedding,
                         pooling_operation=pooling_operation,
                         layers=layers,
