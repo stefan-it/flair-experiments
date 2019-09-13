@@ -13,7 +13,7 @@ from flair.embeddings import (
     RoBERTaEmbeddings,
     StackedEmbeddings,
     XLMEmbeddings,
-    XLMEmbeddings,
+    XLNetEmbeddings,
 )
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
@@ -122,7 +122,7 @@ class ExperimentRunner:
                 )
             elif embedding.startswith("xlnet"):
                 token_embeddings.append(
-                    XLMEmbeddings(
+                    XLNetEmbeddings(
                         pretrained_model_name_or_path=embedding,
                         pooling_operation=pooling_operation,
                         layers=layers,
