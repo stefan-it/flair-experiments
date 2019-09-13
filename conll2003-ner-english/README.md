@@ -64,3 +64,27 @@ BERT models:
 | ------------------------------------------ | ------- | --------- | -----
 | BERT (base, cased), BERT (base, uncased)   | `first` | 96.15     | 92.30
 | BERT (large, cased), BERT (large, uncased) | `first` | **96.26** | 92.30
+
+## Experiment runner
+
+For several experiments, json-based configuration files exist. An experiment can be launched
+with the `run_experiment.py` script. It provides the following commandline interface:
+
+```bash
+$ python run_experiment.py --help
+Usage: run_experiment.py [OPTIONS]
+
+Options:
+  --config TEXT     Define path to configuration file
+  --number INTEGER  Define experiment number
+  --help            Show this message and exit.
+```
+
+E.g. to run the RoBERTa (large, mean pooling) experiment, just execute:
+
+```bash
+$ python run_experiment.py --number 1 --config configs/roberta_large_mean.json
+```
+
+Training will be automatically started with the provided parameters
+(specified in the json-based configuration file).
