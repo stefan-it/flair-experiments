@@ -8,6 +8,8 @@ are used, as well as two ELMo models.
 
 ## Changelog
 
+**December**: ALBERT result added.
+
 **September 2019**: Experiments with stacking cased and uncased BERT models added. First results for SpanBERT are done.
 
 ## Training
@@ -51,6 +53,7 @@ The following table shows all experiments on the CoNLL-2003 NER dataset.
 | ELMo (large, 5.5B tokens)                  | -            | 95.68     | 92.15
 | DistilBERT (base, uncased)                 | `first`      | 94.20     | 90.68
 | SpanBERT (base, cased) **preliminary**     | `first`      | 89.26     | 83.55
+| ALBERT (xxlarge, uncased, v1)              | `first`      | 95.15     | 92.03
 
 **Notice**: Only **one** run is reported here.
 
