@@ -51,6 +51,45 @@ python preprocess.py twitter_gold/twitter.gold.dev.xml > dev.txt
 python preprocess.py twitter_gold/twitter.gold.test.xml > test.txt
 ```
 
+## Fine-tuning
+
+We fine-tune a model with German word and Flair embeddings and perform a basic hyper-parameter search over
+different batch sizes: `[4, 8, 16, 32]`.
+
+Results on development (accuracy averaged over 5 runs) can be seen in the following table:
+
+| Configuration | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|---------------|-------|-------|-------|-------|-------|--------------|
+| `bs4`         | 92.84 | 92.66 | 92.88 | 92.74 | 92.88 | 92.80 ± 0.09 |
+| `bs8`         | 92.81 | 92.76 | 92.81 | 92.63 | 92.62 | 92.73 ± 0.08 |
+| `bs16`        | 92.71 | 92.45 | 92.59 | 92.3  | 92.62 | 92.53 ± 0.14 |
+| `bs32`        | 92.23 | 92.2  | 92.76 | 92.35 | 92.35 | 92.38 ± 0.20 |
+
+Based on the best configuration (with batch size 4), the achieved test result is 92.84 ± 0.25.
+
+| System                          | Final Accuracy |
+|---------------------------------|----------------|
+| Best reported accuracy in paper | 89.42          |
+| Our model                       | 92.84 ± 0.25   |
+
+The best model was then uploaded to the Hugging Face Model Hub:
+
+* [`flair/de-pos-fine-grained`](https://huggingface.co/flair/de-pos-fine-grained)
+
+and it can be loaded with:
+
+```python
+import flair
+model = flair.models.SequenceTagger.load('de-pos-fine-grained')
+```
+
+## Old experiments
+
+Initial experiments with Flair on that dataset were made a while ago.
+
+<details>
+<summary>Detailed summary can be found here:</summary>
+
 ## Training
 
 ### Experiment 1
@@ -154,3 +193,5 @@ Accuracy and F1-score over epochs:
 | Best reported accuracy in paper | 89.42
 | Experiment 1                    | 92.49
 | Experiment 2                    | **93.06**
+
+</details>
