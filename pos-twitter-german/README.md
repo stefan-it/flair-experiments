@@ -76,11 +76,17 @@ The best model was then uploaded to the Hugging Face Model Hub:
 
 * [`flair/de-pos-fine-grained`](https://huggingface.co/flair/de-pos-fine-grained)
 
-and it can be loaded with:
+and it can be loaded and tested with:
 
 ```python
-import flair
-model = flair.models.SequenceTagger.load('de-pos-fine-grained')
+from flair.data import Sentence
+from flair.models import SequenceTagger
+
+model = SequenceTagger.load('flair/de-pos-fine-grained')
+sent = Sentence("@Sneeekas Ich nicht \o/", use_tokenizer=False)
+model.predict(sent)
+
+# Sentence[4]: "@Sneeekas Ich nicht \o/" → ["@Sneeekas"/ADDRESS, "Ich"/PPER, "nicht"/PTKNEG, "\o/"/EMO]
 ```
 
 ## Old experiments
