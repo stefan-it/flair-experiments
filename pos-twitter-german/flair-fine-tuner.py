@@ -1,75 +1,59 @@
-import re
+import logging
+import sys
 
-from flair.data import Sentence, TaggedCorpus, Token
-from flair.data_fetcher import NLPTaskDataFetcher, NLPTask
-from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings, CharLMEmbeddings
+from flair import set_seed
+from flair.datasets import ColumnCorpus
+from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings, FlairEmbeddings
+from flair.models import SequenceTagger
+from flair.trainers import ModelTrainer
 from typing import List
 
-def read_conll_2_column_data(path_to_conll_file: str, tag_name: str):
-    sentences: List[Sentence] = []
+logger = logging.getLogger("flair")
+logger.setLevel(level="INFO")
 
-    lines: List[str] = open(path_to_conll_file).read().strip().split('\n')
+# Hyper-param search
+seeds = [1, 2, 3, 4, 5]
+batch_sizes = [4, 8, 16, 32]
 
-    sentence: Sentence = Sentence()
-    for line in lines:
-        if line == '':
-            if len(sentence) > 0:
-                sentences.append(sentence)
-            sentence: Sentence = Sentence()
-        else:
-            fields: List[str] = re.split("\s+", line)
-            token = Token(fields[0])
-            token.add_tag(tag_name, fields[1])
-            sentence.add_token(token)
+for batch_size in batch_sizes:
+    for seed in seeds:
+        set_seed(seed)
 
-    if len(sentence.tokens) > 0:
-        sentences.append(sentence)
+        columns = {0: "text", 1: "pos"}
+        corpus = ColumnCorpus(data_folder="./", column_format=columns, in_memory=True, train_file="train.txt",
+                              dev_file="dev.txt", test_file="test.txt", column_delimiter="\t")
 
-    return sentences
+        # Training, dev and test data set size from paper
+        number_train_tweets = 420
+        number_dev_tweets = 500
+        number_test_tweets = 506
 
-sentences_train: List[Sentence] = read_conll_2_column_data("train.txt", "pos")
-sentences_dev: List[Sentence]   = read_conll_2_column_data("dev.txt", "pos")
-sentences_test: List[Sentence]  = read_conll_2_column_data("test.txt", "pos")
+        # Check, if our dataset reader works
+        assert len(corpus.train) == number_train_tweets
+        assert len(corpus.dev) == number_dev_tweets
+        assert len(corpus.test) == number_test_tweets
 
-# Training, dev and test data set size from paper
-number_train_tweets = 420
-number_dev_tweets = 500
-number_test_tweets = 506
+        tag_dictionary = corpus.make_label_dictionary(label_type="pos", add_dev_test=True)
 
-# Check, if our dataset reader works
-assert len(sentences_train) == number_train_tweets
-assert len(sentences_dev) == number_dev_tweets
-assert len(sentences_test) == number_test_tweets
+        embedding_types: List[TokenEmbeddings] = [
+            WordEmbeddings('de'),
+            FlairEmbeddings('german-forward'),
+            FlairEmbeddings('german-backward'),
+        ]
 
-corpus: TaggedCorpus = TaggedCorpus(sentences_train, sentences_dev,
-                                    sentences_test)
+        embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
 
-tag_type = 'pos'
+        tagger: SequenceTagger = SequenceTagger(hidden_size=256,
+                                                embeddings=embeddings,
+                                                tag_dictionary=tag_dictionary,
+                                                tag_type="pos",
+                                                use_crf=True)
 
-tag_dictionary = corpus.make_tag_dictionary(tag_type=tag_type)
+        trainer: ModelTrainer = ModelTrainer(tagger, corpus)
 
-embedding_types: List[TokenEmbeddings] = [
-    WordEmbeddings('de-fasttext'),
-    CharLMEmbeddings('german-forward'),
-    CharLMEmbeddings('german-backward'),
-]
-
-embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
-
-from flair.models import SequenceTagger
-
-tagger: SequenceTagger = SequenceTagger(hidden_size=256,
-                                        embeddings=embeddings,
-                                        tag_dictionary=tag_dictionary,
-                                        tag_type=tag_type,
-                                        use_crf=True)
-
-from flair.trainers import SequenceTaggerTrainer
-
-trainer: SequenceTaggerTrainer = SequenceTaggerTrainer(tagger, corpus,
-                                                       test_mode=True)
-
-trainer.train('resources/taggers/pos-twitter-german',
-              learning_rate=0.1,
-              mini_batch_size=32,
-              max_epochs=150)
+        trainer.train(f'./pos-twitter-german-bs{batch_size}-{seed}',
+                      learning_rate=0.1,
+                      mini_batch_size=batch_size,
+                      main_evaluation_metric=("micro avg", "accuracy"),
+                      use_final_model_for_eval=False,
+                      max_epochs=150)
